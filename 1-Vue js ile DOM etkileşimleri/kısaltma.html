@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="changelink">linki değiştirmek için tıkla</button>
+        <a :href="link">Link</a>
+<!-- v-on = @
+
+    v-bind = : -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+               link:"https://www.google.com"
+               
+            },
+            methods: {
+                
+                changelink:function(){
+
+                    this.link="https://www.youtube.com"
+                },
+
+                
+                
+
+            },
+
+
+        });
+    </script>
+</body>
+
+</html>

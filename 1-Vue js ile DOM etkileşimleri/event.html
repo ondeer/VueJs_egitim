@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<head>
+
+
+
+</head>
+
+<body>
+
+    <div id="app">
+ <button v-on:click="alertgoster('onder')">Alert göster</button>
+ <button v-on:click="counter++">arttır</button>
+ <button v-on:click="count_arttir(3)">artt</button>
+ <p>{{counter}}</p>
+
+ <p v-on:mousemove="updateCords(2,$event)">Kordinatlar : {{x}} , {{y}}
+<span v-on:mousemove.stop>GİZLİ BÖLME</span>
+
+ </p>
+    <!-- $event eventi göndereceğimiz sıradaki parametreye yazılması lazım  -->
+
+
+<!-- Keyboard eventleri-->
+<input type="text" v-on:keyup.enter="showAlert">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+            
+            data :{
+                counter:0,
+                x:0,
+                y:0
+
+
+            },
+
+           methods : {
+            alertgoster : function(name){
+
+                alert(name);
+
+            },
+
+            count_arttir :function(step){
+
+                this.counter+=step;
+
+            },
+
+            updateCords : function(step,event){
+                this.counter+=step;
+                this.x=event.clientX;
+                this.y=event.clientY;
+
+            },  
+
+            showAlert : function(event){
+
+                alert(event.target.value);
+            }
+
+
+           }
+
+
+        });
+    </script>
+</body>
+
+</html>

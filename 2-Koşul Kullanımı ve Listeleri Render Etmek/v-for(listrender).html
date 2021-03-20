@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+
+<body>
+
+
+    <div id="app">
+
+        <ul>
+            <li v-for="personel in persons">
+                <ul>
+                    <li v-for="(value,key,index) in personel">
+                        {{key}}:{{value}} {{index}}
+
+
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <span v-for="i in 5">{{i}}</span>
+
+        <hr>
+
+        <ul>
+            <li v-for="product in products">{{product}}</li>
+            <br>
+            <li v-for="(product,index) in products" :key="product" >{{product}} - {{index}}</li>
+        </ul>
+        <hr>
+        <div v-for="(product,index) in products">
+            <h3>{{product}}</h3>
+            <p>{{index}}</p>
+        </div>
+        <hr>
+        <template v-for="(product,index) in products">
+            <h3>{{product}}</h3>
+            <p>{{index}}</p>
+
+        </template>
+
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data:{
+            products: ["Monitör", "Klavye", "Askı", "Masa"],
+            persons: [{
+                    name: "Gökhan",
+                    email: "gokhan@kandemir.com"
+                },
+                {
+                    name: "Onder",
+                    email: "onder@onder.com"
+                },
+                {
+                    name: "Defne",
+                    email: "defne@kandemir.com"
+                },
+                {
+                    name: "İfsalettin",
+                    email: "ifo@kandemir.com"
+                },
+
+
+
+            ],
+        }
+
+
+
+
+
+
+
+        })
+    </script>
+</body>
+
+</html>

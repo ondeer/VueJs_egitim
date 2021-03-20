@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<head>
+
+
+
+</head>
+
+<body>
+
+    <div id="app">
+
+
+        <button v-on:click="counter++">arttır</button>
+        <button v-on:click="counter--">azalt</button>
+        <button v-on:click="secondcounter++">second arttır</button>
+
+        <p>Counter : {{counter}}</p>
+        <p>{{result()}}</p>
+        <p>{{secondcounter}}</p>
+        <p>{{output}}</p>
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+
+            data: {
+                counter: 0,
+                secondcounter: 0
+
+
+
+            },
+
+            methods: {
+
+                result: function () {
+                    console.log("method");
+                    return this.counter > 10 ? "10 dan büyük " : "10 dan küçük"
+
+                }
+            },
+            
+            computed :{
+                output:function(){
+                console.log("computed");
+                    return this.counter > 10 ? "10 dan büyük " : "10 dan küçük"   
+                }
+                // computed methoddan farkı counter etkilenirse çalışıyor kullanımında parantez yok
+                //senkron--anında çalışması gerekir
+            },
+
+            watch :{
+                counter : function(){
+                    vm=this;
+                    setTimeout(function(){
+                        vm.counter=0;
+
+                    },1500)
+                    //asenkron çalışır
+                    //propertiesde adla function
+                    //değeri değiştiğinde belli zaman sonra aksyion çalıştırılabilir
+
+                }
+
+            }
+
+
+        });
+    </script>
+</body>
+
+</html>
